@@ -177,5 +177,17 @@
         {
             get { return Resource.Menu; }
         }
+
+        public static string MyProfile
+        {
+            get { return Resource.MyProfile; }
+        }
+
+        public static string Statistics => Resource.Statistics;
+
+        public static string Logout
+        {
+            get { return Resource.Logout; }
+        }
     }
 }

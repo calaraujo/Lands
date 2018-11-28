@@ -5,12 +5,44 @@
         x:Class="Lands.Views.MenuPage"
         xmlns:i18n="clr-namespace:Lands.Helpers"    
         BindingContext="{Binding Main, Source={StaticResource Locator}}"
+        BackgroundColor="Black"
         Title="{i18n:Translate Menu}">             
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Menu"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+        <StackLayout
+            Padding="5,20,5,5">
+            <Image
+                Source="onu"
+                WidthRequest="100">
+            </Image>
+            <ListView 
+                ItemsSource="{Binding Menus}"
+                SeparatorVisibility="None"
+                HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavigateCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image 
+                                  Source="{Binding Icon}"
+                                  WidthRequest="50"
+                                  HeightRequest="50"/>
+                                <Label 
+                                  Grid.Column="1"
+                                  VerticalOptions="Center"
+                                  TextColor="White"
+                                  Text="{Binding Title}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
-    </ContentPage.Content>
+
 </ContentPage>
